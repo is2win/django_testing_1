@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    Редактировать форвард
+{% endblock %}
+
+{% block content %}
+    <h1>Редактирование форварда</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ option_formset.management_form }}
+            {% for form in option_formset %}
+                {{ form.as_p }}
+            {% endfor %}
+        <input type="submit" value="Обновить пост">
+    </form>
+{% endblock %}

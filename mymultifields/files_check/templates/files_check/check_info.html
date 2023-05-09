@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+    Страница проверки
+{% endblock %}
+{% block content %}
+    <h1>Проверка</h1>
+    <p>Заголовок = {{ checking.title }}</p>
+    <p>Кого проверяли = {{ checking.dock_check }}</p>
+    <p>Результат проверки = {{ checking.result }}</p>
+    <div>
+        {% for forward in forwards %}
+            <p>Форвард = {{ forward.forward_class }}</p>
+            <p>{% for option in forward.options.all %}
+                <p>Имя опции форварда = {{ option.name }}</p>
+                <p>Описание опции форварда = {{ option.description }}</p>
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}

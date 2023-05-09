@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Список форвардов
+{% endblock %}
+
+{% block content %}
+    {% for forward in forwards %}
+        <div>
+        Название феникса: {{ forward.forward_class }}
+            <br>
+            <br>
+        {% for option in forward.options.all %}
+            <li>
+                <strong>Поле:</strong> {{ option.name }}<br>
+                <strong>Откуда брать из дилса:</strong> {{ option.description }}<br>
+                <strong>Ожидаю получить тип данных:</strong> {{ option.type_of_field }}
+            </li>
+
+        {% endfor %}
+        </div>
+        <div>
+        <hr>
+        </div>
+    {% endfor %}
+    
+{% endblock %}
